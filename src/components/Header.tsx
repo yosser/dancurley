@@ -63,6 +63,15 @@ const Header = ({ onNavigate, currentPage }: HeaderProps) => {
                             Video Games
                         </button>
                         <button
+                            onClick={() => handleNavigation('journalism')}
+                            className={`transition-colors ${currentPage === 'journalism'
+                                ? 'text-blue-400'
+                                : 'text-white hover:text-blue-400'
+                                }`}
+                        >
+                            Journalism
+                        </button>
+                        {/*<button
 
                             onClick={() => handleNavigation('about')}
                             className={`transition-colors ${currentPage === 'about'
@@ -71,7 +80,7 @@ const Header = ({ onNavigate, currentPage }: HeaderProps) => {
                                 }`}
                         >
                             About
-                        </button>
+                        </button>*/}
                         <button
                             onClick={() => handleNavigation('contact')}
                             className={`transition-colors ${currentPage === 'contact'

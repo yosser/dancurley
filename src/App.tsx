@@ -2,16 +2,17 @@ import { useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import FeaturedWork from './components/FeaturedWork'
-import Testimonial from './components/Testimonial'
 import Footer from './components/Footer'
 import Portfolio from './pages/Portfolio'
-import About from './pages/About'
+//import About from './pages/About'
 import Contact from './pages/Contact'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
 
   const renderPage = () => {
+    window.scrollTo(0, 0);
+
     switch (currentPage) {
       case 'tv':
         return (
@@ -27,13 +28,20 @@ function App() {
             <Footer setCurrentPage={setCurrentPage} />
           </>
         )
-      case 'about':
+      case 'journalism':
+        return (
+          <>
+            <Portfolio primaryCategory="Journalism" />
+            <Footer setCurrentPage={setCurrentPage} />
+          </>
+        )
+      /*case 'about':
         return (
           <>
             <About />
             <Footer setCurrentPage={setCurrentPage} />
           </>
-        )
+        ) */
       case 'contact':
         return (
           <>
@@ -46,12 +54,13 @@ function App() {
           <>
             <Hero />
             <FeaturedWork onNavigate={setCurrentPage} />
-            <Testimonial />
+            {/*<Testimonial />*/}
             {/*<Services /> */}
             <Footer setCurrentPage={setCurrentPage} />
           </>
         )
     }
+    window.scrollTo(0, 0);
   }
 
   return (

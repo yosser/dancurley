@@ -20,9 +20,9 @@ const Footer = ({ setCurrentPage }: { setCurrentPage: React.Dispatch<React.SetSt
                             <a href="#portfolio" onClick={() => setCurrentPage('portfolio')} className="block text-gray-400 hover:text-blue-400 transition-colors text-sm">
                                 Portfolio
                             </a>
-                            <a href="#about" onClick={() => setCurrentPage('about')} className="block text-gray-400 hover:text-blue-400 transition-colors text-sm">
+                            {/*<a href="#about" onClick={() => setCurrentPage('about')} className="block text-gray-400 hover:text-blue-400 transition-colors text-sm">
                                 About
-                            </a>
+                            </a>*/}
                             <a href="#contact" onClick={() => setCurrentPage('contact')} className="block text-gray-400 hover:text-blue-400 transition-colors text-sm">
                                 Contact
                             </a>
@@ -33,10 +33,10 @@ const Footer = ({ setCurrentPage }: { setCurrentPage: React.Dispatch<React.SetSt
                         <h4 className="text-lg font-semibold text-white py-2">Connect</h4>
                         <div className="space-y-2">
                             <a
-                                href="mailto:dan@dancurley.com"
+                                href="mailto:dan_curley@hotmail.com"
                                 className="block text-gray-400 hover:text-blue-400 transition-colors text-sm"
                             >
-                                dan@dancurley.com
+                                Email
                             </a>
                             <a
                                 href="https://www.linkedin.com/in/dan-curley-3ab4772ab/"
@@ -46,14 +46,14 @@ const Footer = ({ setCurrentPage }: { setCurrentPage: React.Dispatch<React.SetSt
                             >
                                 LinkedIn
                             </a>
-                            <a
+                            {/*<a
                                 href="https://pro.imdb.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="block text-gray-400 hover:text-blue-400 transition-colors text-sm"
                             >
                                 IMDb Pro
-                            </a>
+                            </a>    */}
                         </div>
                     </div>
                 </div>

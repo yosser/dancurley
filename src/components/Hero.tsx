@@ -10,6 +10,9 @@ const Hero = () => {
                     <p className="text-xl lg:text-2xl text-gray-300 mb-8 leading-relaxed">
                         Journalist, scriptwriter, editor, web producer and game developer with decades of experience and success in creative industries.                    </p>
                 </div>
+                <div className="text-white animate-fade-in-up">
+                    <img src="/dan-headshot-sm.jpg" alt="Dan Curley" className="object-cover" />
+                </div>
             </div>
         </section>
     );

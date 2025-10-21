@@ -1,31 +1,19 @@
-import { useState } from 'react';
+
+
+const MailLink = () => {
+    const email = 'dan_curley@hotmail.com';
+    return (<a id="email-link" href={`mailto:${email}`} className="text-blue-400 hover:text-blue-300 transition-colors">
+        Email Me
+    </a>);
+}
 
 const Contact = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        projectDetails: ''
-    });
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // Handle form submission here
-        console.log('Form submitted:', formData);
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
-
     return (
         <div id="contact" className="min-h-screen bg-black pt-20">
             <div className="max-w-7xl mx-auto px-6 py-12">
                 <div className='mb-6'>
                     <h1 className="text-5xl font-bold text-white text-center">
-                        Let's Create Something Great
+                        Give us a shout
                     </h1>
                 </div>
                 <div className="mb-6">
@@ -33,9 +21,9 @@ const Contact = () => {
                         Available for permanent and freelance opportunities
                     </p>
                 </div>
-                <div className="grid lg:grid-cols-2 gap-16">
+                <div >
                     {/* Left Side - Contact Form */}
-                    <div>
+                    {/*<div>
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
                                 <label htmlFor="name" className="block text-white text-sm font-semibold mb-2">
@@ -92,7 +80,7 @@ const Contact = () => {
                                 Hire Me
                             </button>
                         </form>
-                    </div>
+                    </div>*/}
 
                     {/* Right Side - Contact Information */}
                     <div className="space-y-8">
@@ -110,13 +98,12 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <p className="text-white font-semibold">Email</p>
-                                        <a href="mailto:dan@dancurley.com" className="text-blue-400 hover:text-blue-300 transition-colors">
-                                            dan@dancurley.com
-                                        </a>
+                                        <MailLink />
+
                                     </div>
                                 </div>
 
-                                <div className="flex items-start space-x-4">
+                                {/*<div className="flex items-start space-x-4">
                                     <div className="w-6 h-6 text-blue-500 mt-1">
                                         <svg fill="currentColor" viewBox="0 0 20 20">
                                             <path fillRule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clipRule="evenodd" />
@@ -128,7 +115,7 @@ const Contact = () => {
                                             View Professional Profile
                                         </a>
                                     </div>
-                                </div>
+                                </div>*/}
 
                                 <div className="flex items-start space-x-4">
                                     <div className="w-6 h-6 text-blue-500 mt-1">
@@ -138,13 +125,13 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <p className="text-white font-semibold">LinkedIn</p>
-                                        <a href="https://linkedin.com/in/dancurley" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">
+                                        <a href="https://www.linkedin.com/in/dan-curley-3ab4772ab/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 transition-colors">
                                             Connect with me
                                         </a>
                                     </div>
                                 </div>
 
-                                <div className="flex items-start space-x-4">
+                                {/*<div className="flex items-start space-x-4">
                                     <div className="w-6 h-6 text-blue-500 mt-1">
                                         <svg fill="currentColor" viewBox="0 0 20 20">
                                             <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
@@ -156,11 +143,11 @@ const Contact = () => {
                                             Follow me
                                         </a>
                                     </div>
-                                </div>
+                                </div>*/}
                             </div>
                         </div>
 
-                        <div className="bg-gray-900 p-6 rounded-lg">
+                        {/*<div className="bg-gray-900 p-6 rounded-lg">
                             <div className="mb-4">
                                 <h4 className="text-lg font-semibold text-white">Response Time</h4>
                             </div>
@@ -168,9 +155,9 @@ const Contact = () => {
                                 I typically respond to inquiries within 24-48 hours. For urgent projects,
                                 please mention "URGENT" in your subject line and I'll prioritize your message.
                             </p>
-                        </div>
+                        </div>*/}
 
-                        <div className="bg-gray-900 p-6 rounded-lg">
+                        {/*<div className="bg-gray-900 p-6 rounded-lg">
                             <div className="mb-4">
                                 <h4 className="text-lg font-semibold text-white">What to Include</h4>
                             </div>
@@ -181,7 +168,7 @@ const Contact = () => {
                                 <li>• Any specific requirements or references</li>
                                 <li>• Your contact information and preferred communication method</li>
                             </ul>
-                        </div>
+                        </div>*/}
                     </div>
                 </div>
             </div>

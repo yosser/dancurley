@@ -1,8 +1,9 @@
-import { aboutMe, selectedCredits, clients } from '../content/content';
+import {
+    aboutMe
+} from '../content/content';
 
 
 const About = () => {
-
     return (
         <div id="about" className="min-h-screen bg-black pt-20">
             <div className="max-w-7xl mx-auto px-6 py-12">
@@ -40,7 +41,7 @@ const About = () => {
                         </div>
 
                         {/* Selected Credits */}
-                        <div className="mt-12">
+                        {/* <div className="mt-12">
                             <div className="mb-6">
                                 <h3 className="text-2xl font-bold text-white">Selected Credits</h3>
                             </div>
@@ -51,10 +52,10 @@ const About = () => {
                                     </div>
                                 ))}
                             </div>
-                        </div>
+                        </div> *}
 
                         {/* Clients & Publications */}
-                        <div className="mt-12">
+                        {/*<div className="mt-12">
                             <div className="mb-6">
                                 <h3 className="text-2xl font-bold text-white">Clients & Publications</h3>
                             </div>
@@ -65,7 +66,7 @@ const About = () => {
                                     </span>
                                 ))}
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

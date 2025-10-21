@@ -13,7 +13,7 @@ interface IProject {
     externalLinks: { url: string; label: string }[];
 }
 interface IPortfolioProps {
-    primaryCategory: 'Television' | 'Video Games';
+    primaryCategory: 'Television' | 'Video Games' | 'Journalism';
 }
 
 const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory }) => {
@@ -58,12 +58,13 @@ const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory }) => {
                     {filteredProjects.map((project) => (
                         <div
                             key={project.id}
-                            className="bg-gray-900 rounded-lg overflow-hidden cursor-pointer hover:bg-gray-800 transition-colors group"
+                            className="bg-gray-900  rounded-lg overflow-hidden cursor-pointer hover:bg-gray-600 transition-colors group"
+                            onClick={() => setSelectedProject(project)}
                         >
-                            <div className="aspect-video bg-gradient-to-br from-gray-700 to-gray-800 relative">
+                            <div className="aspect-video bg-gradient-to-br hover:bg-gray-600 from-gray-700 to-gray-800 relative">
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                                 <div className="absolute inset-0 flex items-center justify-center" style={{
-                                    backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(${project.image})`,
+                                    backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(${project.image})`,
                                     backgroundPositionX: '50%',
                                     backgroundSize: 'contain',
                                     backgroundRepeat: 'no-repeat'
@@ -72,23 +73,16 @@ const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory }) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className='grid grid-cols-[1fr_auto]'>
-                                <div className="p-6">
-                                    <div className='mb-2'>
-                                        <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
-                                    </div>
-                                    <p className="text-blue-400 text-sm mb-2">{project.role}</p>
-                                    <p className="text-gray-400 text-sm">{project.date}</p>
 
+                            <div className="p-6">
+                                <div className='mb-2'>
+                                    <h3 className="text-xl font-semibold text-white mb-2">{project.title}</h3>
                                 </div>
-                                <button onClick={() => setSelectedProject(project)} className="text-right top-0 right-0 relative m-2 max-h-20">
-                                    <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto group-hover:bg-blue-500/30 transition-colors bg-grey-50 hover:bg-blue-600 text-white p-2 ">
-                                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                            <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" />
-                                        </svg>
-                                    </div>
-                                    <p className="text-sm font-semibold">View Details</p>
-                                </button>
+                                <p className="text-blue-400 text-sm mb-2">{project.role}</p>
+                                <p className="text-gray-400 text-sm">{project.date}</p>
+
+
+
                             </div>
                         </div>
                     ))}
