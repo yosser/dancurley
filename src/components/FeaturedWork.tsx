@@ -7,8 +7,8 @@ interface FeaturedWorkProps {
 
 const FeaturedWork = ({ onNavigate }: FeaturedWorkProps) => {
     const allPrimaryCategories = [...new Set(allProjects.map(project => project.primaryCategory))];
-    const pc2nav = { 'Television': 'tv', 'Video Games': 'video-games', 'Journalism': 'journalism' };
-    const pc2image = { 'Television': '/Channel_4_Logo_2023.svg', 'Video Games': '/PlayStation.png', 'Journalism': '/Loadedlogo-sm.jpg' };
+    const pc2nav = { 'TV & Streaming': 'tv', 'Video Games': 'video-games', 'Journalism': 'journalism' };
+    const pc2image = { 'TV & Streaming': '/Channel_4_Logo_2023.svg', 'Video Games': '/PlayStation.png', 'Journalism': '/Loadedlogo-sm.jpg' };
     return (
         <section id="work" className="py-14 bg-gray-900">
             <div className="max-w-7xl mx-auto px-6 w-full">

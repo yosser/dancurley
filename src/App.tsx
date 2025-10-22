@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import FeaturedWork from './components/FeaturedWork'
 import Footer from './components/Footer'
 import Portfolio from './pages/Portfolio'
+import Loaded from './pages/Loaded'
 //import About from './pages/About'
 import Contact from './pages/Contact'
 
@@ -17,21 +18,28 @@ function App() {
       case 'tv':
         return (
           <>
-            <Portfolio primaryCategory="Television" />
+            <Portfolio primaryCategory="TV & Streaming" onNavigate={setCurrentPage} />
             <Footer setCurrentPage={setCurrentPage} />
           </>
         )
       case 'video-games':
         return (
           <>
-            <Portfolio primaryCategory="Video Games" />
+            <Portfolio primaryCategory="Video Games" onNavigate={setCurrentPage} />
             <Footer setCurrentPage={setCurrentPage} />
           </>
         )
       case 'journalism':
         return (
           <>
-            <Portfolio primaryCategory="Journalism" />
+            <Portfolio primaryCategory="Journalism" onNavigate={setCurrentPage} />
+            <Footer setCurrentPage={setCurrentPage} />
+          </>
+        )
+      case 'Loaded':
+        return (
+          <>
+            <Loaded onNavigate={setCurrentPage} />
             <Footer setCurrentPage={setCurrentPage} />
           </>
         )

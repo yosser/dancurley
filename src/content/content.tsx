@@ -1,3 +1,6 @@
+import React from "react";
+import type { ReactNode } from "react";
+
 export const aboutMe = [
     {
         text: `I'm a passionate storyteller who believes in the power of narrative to connect,
@@ -43,22 +46,22 @@ export const clients = [
 export interface IProject {
     id: number;
     title: string;
-    primaryCategory: 'Television' | 'Video Games' | 'Journalism'
+    primaryCategory: 'TV & Streaming' | 'Video Games' | 'Journalism'
     category: string;
     role: string;
     date: string;
-    description: string;
+    description: string | ReactNode;
     externalLink?: string;
     image: string;
     externalLinks: { url: string; label: string }[];
+    internalLinks?: { url: string; label: string }[];
 }
-
 
 export const projects: IProject[] = [
     {
         id: 1,
         title: "Channel 4",
-        primaryCategory: "Television",
+        primaryCategory: "TV & Streaming",
         category: "Television",
         role: "Programme Information Editor",
         date: "2014-2025",
@@ -71,7 +74,7 @@ export const projects: IProject[] = [
     {
         id: 2,
         title: "Orange",
-        primaryCategory: "Television",
+        primaryCategory: "TV & Streaming",
         category: "Journalism",
         role: "Entertainment Writer and Editor",
         date: "2006-11",
@@ -93,7 +96,7 @@ export const projects: IProject[] = [
     {
         id: 4,
         title: "Skanked Pilot",
-        primaryCategory: "Television",
+        primaryCategory: "TV & Streaming",
         category: "Television",
         role: "Writer, Producer & Actor",
         date: "2012",
@@ -104,7 +107,7 @@ export const projects: IProject[] = [
     {
         id: 5,
         title: "Angin’",
-        primaryCategory: "Television",
+        primaryCategory: "TV & Streaming",
         category: "Television",
         role: "Writer, Producer & Actor",
         date: "2016",
@@ -115,11 +118,11 @@ export const projects: IProject[] = [
     {
         id: 6,
         title: "ActUpNorth",
-        primaryCategory: "Television",
+        primaryCategory: "TV & Streaming",
         category: "Acting",
-        role: "Actor",
-        date: "2021",
-        description: "I studied acting part time in London (The Actors Centre, now the Seven Dials Playhouse) and Manchester and Leeds (ActUpNorth). I’ve always felt it was important for a screenwriter to understand and feel attuned with how dialogue’s performed while writing it - often an eye contact can save a hundred needless words.",
+        role: "Trainee Actor",
+        date: "2021 - present day",
+        description: "I studied acting part time in London's The Actors Centre (now the Seven Dials Playhouse) and currently train in Manchester at ActUpNorth. I’ve always felt it was important for a screenwriter to understand and feel attuned with how dialogue’s performed while writing it - often an eye contact can save a hundred needless words.",
         externalLinks: [{ url: "https://www.actupnorth.co.uk", label: "ActUpNorth" }],
         image: "/act-up.jpg"
     },
@@ -140,9 +143,9 @@ export const projects: IProject[] = [
         title: "The Getaway",
         primaryCategory: "Video Games",
         category: "Content",
-        role: "Staff Writer",
+        role: "Storywriter",
         date: "1999-2000",
-        description: "I worked at Sony for just over a year as the storyline writer for the PS2 game The Getaway - which cost(and unprecedented at the time) £6 million to develop and turned over £100 million in total.It was considered a groundbreaking title for the time, pushing the boundaries for both videogame narratives and cinema - style cutscenes and direction.I did not work on it to the end, I created the outline for the story(the kidnapping and dual storyline with Mark and Frank) and created most of the main characters, but the script was finished by others after I left.",
+        description: <React.Fragment><p>I worked at Sony for just over a year as the storyline writer for the PS2 game The Getaway.</p><p >It was considered a groundbreaking title for the time, pushing the boundaries for both videogame narratives and cinema - style cutscenes and direction.</p > <p>I did not work on it to the end, I created the outline for the story(the kidnapping and dual storyline with Mark and Frank) and created most of the main characters, but the script was finished by others after I left.</p></React.Fragment>,
         externalLinks: [{ url: "https://en.wikipedia.org/wiki/The_Getaway_(video_game)", label: "The Getaway" }],
         image: "/TheGetaway-sm.jpg"
     },
@@ -152,7 +155,7 @@ export const projects: IProject[] = [
         primaryCategory: "Video Games",
         category: "QA and Design",
         role: "QA Tester and Game Designer",
-        date: "1991-98",
+        date: "1991 - 98",
         description: "Throughout most of the '90s I worked at several independent video game development studios in Manchester, starting as a QA Tester then worked my way up to Level Designer then Game Designer. I worked on dozens of games including Super Kick Off, Flashback, Spider-Man: Maximum Carnage, James Pond: RoboCod and Olympic Gold: Barcelona 1992. My last game in this period was Tunnel B2 for which I was the full designer, but the studio Neon didn’t last due to financial reasons.",
         externalLinks: [{ url: "https://en.wikipedia.org/wiki/Super_Kick_Off", label: "Super Kick Off" }],
         image: "/Flashback.jpeg"
@@ -163,7 +166,7 @@ export const projects: IProject[] = [
         primaryCategory: "Video Games",
         category: "Journalism",
         role: "Freelance Writer",
-        date: "1991-92",
+        date: "1991 - 92",
         description: "I started freelance writing for Future Publishing’s Sega Power in 1991 while still just 15. I wrote a monthly column called Curley’s Challenge and several features, the most memorable being a visit to Sega Japan where I met the President of Sega and was able to reveal many new developments Sega were working on.",
         externalLinks: [{ url: "https://en.wikipedia.org/wiki/Sega_Power", label: "Sega Power" }],
         image: "/SegaJapan-sm.jpg"
@@ -174,7 +177,7 @@ export const projects: IProject[] = [
         primaryCategory: "Video Games",
         category: "Journalism",
         role: "Deputy Editor",
-        date: "2003-04",
+        date: "2003 - 04",
         description: "After a spell on Future’s XGamer magazine, I became Deputy Editor of The Official UK PlayStation Magazine where I planned each issue, managed the freelance budget and pool and chaired features meetings.While at Future, I also freelanced for PSM2, GamesMaster Magazine, PlayStation Max, Total Film, and edited and wrote Metal Hammer's videogame section.",
         externalLinks: [{ url: "https://en.wikipedia.org/wiki/The_Official_UK_PlayStation_Magazine", label: "The Official UK PlayStation Magazine" }],
         image: "/OPM-cover.jpg"
@@ -185,7 +188,7 @@ export const projects: IProject[] = [
         primaryCategory: "Video Games",
         category: "Journalism",
         role: "Features Editor",
-        date: "2005-06",
+        date: "2005 - 06",
         description: "At Imagine, I managed a 25 - 30 page features section, lead features meetings, planned content, commissioned and wrote features.I also wrote for other sections including reviews and news.My favourite feature from this time was a feature about videogaming in prison, in which I interviewed someone from the Prison Service and a convicted criminal who’d spent time in prison.",
         externalLinks: [{ url: "https://en.wikipedia.org/wiki/360", label: "360" }],
         image: "/MeanMachine360-sm.jpg"
@@ -196,7 +199,7 @@ export const projects: IProject[] = [
         primaryCategory: "Journalism",
         category: "Journalism",
         role: "Freelance Restaurant Reviewer",
-        date: "2019-2022",
+        date: "2019 - 22",
         description: "When I lived in Leeds I became Creative Tourist's restaurant critic for the city, specialising in (but not restricted too) vegetarian and vegan establishments and menus. I also did the occasional review in Manchester.",
         externalLinks: [{ url: "https://www.creativetourist.com/venue/habas-bar-restaurant/", label: "Habas" },
         { url: "https://www.creativetourist.com/venue/bundobust-leeds/", label: "Bundobust" },
@@ -209,7 +212,7 @@ export const projects: IProject[] = [
         primaryCategory: "Journalism",
         category: "Journalism",
         role: "Freelance News Writer",
-        date: "2016-2017",
+        date: "2016 - 17",
         description: "I would write around 10-12 news stories a week for this global B2B science site, covering everything from consumer tech to governmental research and development innovations. I wrote hundreds of news pieces while I was freelancing for them which are behind a paywall (hence screen grabs instead of links).",
         externalLinks: [{ url: "https://www.springwise.com/news/minimal-mobile", label: "Minimal mobile" },
         { url: "https://www.springwise.com/news/solar-powered-mp3", label: "Solar powered MP3" },
@@ -222,7 +225,7 @@ export const projects: IProject[] = [
         primaryCategory: "Journalism",
         category: "Journalism",
         role: "Freelance Film Reviewer",
-        date: "2008-2010",
+        date: "2008 - 10",
         description: "I was a freelance film reviewer for The Quietus during the site's launch years, attending press screenings and often interviewing film stars and directors.",
         externalLinks: [{ url: "https://www.thequietus.com/culture/film/kick-ass-film-review-nicholas-cage/", label: "Kick Ass" },
         { url: "https://www.thequietus.com/culture/film/avatar-3d-review-more-polished-than-hugh-hefner-s-cock/", label: "Avatar" },
@@ -235,9 +238,10 @@ export const projects: IProject[] = [
         primaryCategory: "Journalism",
         category: "Journalism",
         role: "Freelance Features Writer",
-        date: "2002-2005",
+        date: "2002 - 05",
         description: "I was a freelance features writer pitching ideas to them for commission.Among other pieces, I spent two weeks embedded with the military in Iraq, wrestled alligators in Florida and did the Cresta Run in Switzerland.I also contributed comic strips and wrote a court reports column.This was when Loaded was owned by what was then called IPC Media.",
         externalLinks: [{ url: "https://www.loaded.co.uk/features/", label: "Loaded" }],
+        internalLinks: [{ url: "/Loaded", label: "Sample Articles" }],
         image: "/Loadedlogo-sm.jpg"
     },
 ];

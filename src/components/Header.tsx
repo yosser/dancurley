@@ -51,7 +51,7 @@ const Header = ({ onNavigate, currentPage }: HeaderProps) => {
                                 : 'text-white hover:text-blue-400'
                                 }`}
                         >
-                            TV
+                            TV & Streaming
                         </button>
                         <button
                             onClick={() => handleNavigation('video-games')}
@@ -120,7 +120,7 @@ const Header = ({ onNavigate, currentPage }: HeaderProps) => {
                                     : 'text-white hover:text-blue-400'
                                     }`}
                             >
-                                TV
+                                TV & Streaming
                             </button>
                             <button
                                 onClick={() => handleNavigation('video-games')}

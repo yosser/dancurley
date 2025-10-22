@@ -1,33 +1,25 @@
 import React, { useState } from 'react';
 import { projects as allProjects } from '../content/content';
+import type { IProject } from '../content/content';
 
-interface IProject {
-    id: number;
-    title: string;
-    category: string;
-    role: string;
-    date: string;
-    description: string;
-    externalLink?: string;
-    image: string;
-    externalLinks: { url: string; label: string }[];
-}
 interface IPortfolioProps {
-    primaryCategory: 'Television' | 'Video Games' | 'Journalism';
+    primaryCategory: 'TV & Streaming' | 'Video Games' | 'Journalism';
+    onNavigate: (page: string) => void;
 }
 
-const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory }) => {
-    const [selectedCategory, setSelectedCategory] = useState('All');
+const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory, onNavigate }) => {
+    //    const [selectedCategory, setSelectedCategory] = useState('All');
     const [selectedProject, setSelectedProject] = useState<IProject | null>(null);
 
-    const projects = allProjects.filter(project => project.primaryCategory === primaryCategory);
+    const filteredProjects = allProjects.filter(project => project.primaryCategory === primaryCategory);
 
-    const categories =
-        ['All', ...[...new Set(projects.map(project => project.category))].sort()];
-
-    const filteredProjects = selectedCategory === 'All'
-        ? projects
-        : projects.filter(project => project.category === selectedCategory);
+    /*   const categories =
+           ['All', ...[...new Set(projects.map(project => project.category))].sort()];
+   
+       const filteredProjects = selectedCategory === 'All'
+           ? projects
+           : projects.filter(project => project.category === selectedCategory);
+   */
 
     return (
         <div id="portfolio" className="min-h-screen bg-black pt-20">
@@ -37,7 +29,7 @@ const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory }) => {
                         {primaryCategory}
                     </h1>
                 </div>
-                {/* Filter Bar */}
+                {/* Filter Bar 
                 <div className="flex flex-wrap justify-center gap-4 mb-12">
                     {categories.map((category) => (
                         <button
@@ -52,7 +44,7 @@ const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory }) => {
                         </button>
                     ))}
                 </div>
-
+*/}
                 {/* Project Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredProjects.map((project) => (
@@ -80,9 +72,6 @@ const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory }) => {
                                 </div>
                                 <p className="text-blue-400 text-sm mb-2">{project.role}</p>
                                 <p className="text-gray-400 text-sm">{project.date}</p>
-
-
-
                             </div>
                         </div>
                     ))}
@@ -114,16 +103,17 @@ const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory }) => {
                                             <div className='mb-2'>
                                                 <h2 className="text-3xl font-bold">{selectedProject.title}</h2>
                                             </div>
-                                            <p className="text-blue-400">{selectedProject.role} • {selectedProject.date}</p>
+                                            <p className="text-blue-400">{selectedProject.role}</p>
+                                            <p className="text-blue-200 text-sm"> {selectedProject.date}</p>
                                         </div>
                                     </div>
 
-                                    <div className="p-8">
-                                        <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                                    <div className="p-4">
+                                        <div className="text-gray-300 text-lg leading-relaxed mb-6 space-y-2">
                                             {selectedProject.description}
-                                        </p>
+                                        </div>
 
-                                        <div className="flex gap-4">
+                                        <div className="flex gap-4 flex-wrap">
                                             {(selectedProject.externalLinks ?? []).map((link => <a
                                                 href={link.url}
                                                 key={link.url}
@@ -133,6 +123,16 @@ const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory }) => {
                                             >
                                                 {link.label}
                                             </a>))}
+                                            {(selectedProject.internalLinks ?? []).map((link => <button
+                                                key={link.url}
+                                                onClick={() => {
+                                                    setSelectedProject(null);
+                                                    onNavigate(link.url.substring(1)); // Remove leading slash
+                                                }}
+                                                className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                                            >
+                                                {link.label}
+                                            </button>))}
                                             <button
                                                 onClick={() => setSelectedProject(null)}
                                                 className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
