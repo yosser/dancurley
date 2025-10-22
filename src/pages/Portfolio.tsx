@@ -119,9 +119,13 @@ const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory, onNavigate }) =
                                                 key={link.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                                                className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors inline-flex items-center"
                                             >
                                                 {link.label}
+                                                <span className="ml-2 text-white">
+                                                    <svg width="20px" height="20px" viewBox="0 0 24 24" style={{ cursor: 'pointer' }}>
+                                                        <g stroke-width="2.1" stroke="#e0e0e0" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 13.5 17 19.5 5 19.5 5 7.5 11 7.5"></polyline><path d="M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5"></path></g></svg>
+                                                </span>
                                             </a>))}
                                             {(selectedProject.internalLinks ?? []).map((link => <button
                                                 key={link.url}

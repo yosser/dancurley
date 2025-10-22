@@ -132,6 +132,15 @@ const Header = ({ onNavigate, currentPage }: HeaderProps) => {
                                 Video Games
                             </button>
                             <button
+                                onClick={() => handleNavigation('journalism')}
+                                className={`block w-full text-left py-2 transition-colors ${currentPage === 'portfolio'
+                                    ? 'text-blue-400'
+                                    : 'text-white hover:text-blue-400'
+                                    }`}
+                            >
+                                Journalism
+                            </button>
+                            <button
                                 onClick={() => handleNavigation('about')}
                                 className={`block w-full text-left py-2 transition-colors ${currentPage === 'about'
                                     ? 'text-blue-400'
