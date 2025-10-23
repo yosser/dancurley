@@ -1,4 +1,5 @@
 import React from 'react';
+import { MailLink } from '../pages/Contact';
 
 const Footer = ({ setCurrentPage }: { setCurrentPage: React.Dispatch<React.SetStateAction<string>> }) => {
     return (
@@ -32,12 +33,8 @@ const Footer = ({ setCurrentPage }: { setCurrentPage: React.Dispatch<React.SetSt
                     <div>
                         <h4 className="text-lg font-semibold text-white py-2">Connect</h4>
                         <div className="space-y-2">
-                            <a
-                                href="mailto:dan_curley@hotmail.com"
-                                className="block text-gray-400 hover:text-blue-400 transition-colors text-sm"
-                            >
-                                Email
-                            </a>
+                            <MailLink className='block text-gray-400 hover:text-blue-400 transition-colors text-sm'
+                            />
                             <a
                                 href="https://www.linkedin.com/in/dan-curley-3ab4772ab/"
                                 target="_blank"
@@ -60,7 +57,7 @@ const Footer = ({ setCurrentPage }: { setCurrentPage: React.Dispatch<React.SetSt
 
                 <div className="border-t border-gray-800 mt-8 p-8 text-center">
                     <p className="text-gray-400 text-sm">
-                        © 2024 Dan Curley. All rights reserved. Available for permanent and freelance opportunities.
+                        © 2025 Dan Curley. All rights reserved. Available for permanent and freelance opportunities.
                     </p>
                 </div>
             </div>

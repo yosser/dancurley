@@ -72,35 +72,26 @@
   </defs>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:206.002px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black,  Bold';fill:#0000ff;stroke:#205b76;stroke-width:12.8751;stroke-opacity:1"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:206.002px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black,  Bold';fill:#00d3d3;stroke:#205b76;stroke-width:12.8751;stroke-opacity:1;fill-opacity:1"
      x="1.6750653"
      y="176.52065"
      id="text6"
      transform="scale(1.073841,0.9312366)"><tspan
        sodipodi:role="line"
        id="tspan6"
-       style="font-size:206.002px;fill:#0000ff;stroke:#205b76;stroke-width:12.8751;stroke-opacity:1;-inkscape-font-specification:'Arial Black,  Bold';font-family:'Arial Black';font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal"
+       style="font-size:206.002px;fill:#00d3d3;stroke:#205b76;stroke-width:12.8751;stroke-opacity:1;-inkscape-font-specification:'Arial Black,  Bold';font-family:'Arial Black';font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;fill-opacity:1"
        x="1.6750653"
        y="176.52065">D</tspan></text>
   <text
      xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:171.333px;font-family:'.Aqua Kana';-inkscape-font-specification:'.Aqua Kana';white-space:pre;inline-size:114.659;fill:#0000ff;stroke:#205b76;stroke-width:8.03125;stroke-opacity:1"
-     x="78.388657"
-     y="194.92796"
-     id="text7"><tspan
-       x="78.388657"
-       y="194.92796"
-       id="tspan1">C</tspan></text>
-  <text
-     xml:space="preserve"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:211.147px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black,  Bold';fill:#0000ff;stroke:#205b76;stroke-width:9.89752;stroke-opacity:1"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:211.147px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black,  Bold';fill:#8effff;stroke:#205b76;stroke-width:9.89752;stroke-opacity:1;fill-opacity:1"
      x="76.017868"
      y="269.24377"
      id="text8"
      transform="scale(1.0892842,0.91803403)"><tspan
        sodipodi:role="line"
        id="tspan8"
-       style="stroke-width:9.89752;-inkscape-font-specification:'Arial Black,  Bold';font-family:'Arial Black';font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal"
+       style="stroke-width:9.89752;-inkscape-font-specification:'Arial Black,  Bold';font-family:'Arial Black';font-weight:bold;font-style:normal;font-stretch:normal;font-variant:normal;fill:#8effff;fill-opacity:1"
        x="76.017868"
        y="269.24377">C</tspan></text>
 </svg>

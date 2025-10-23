@@ -1,8 +1,8 @@
 
 
-const MailLink = () => {
+export const MailLink: React.FC<{ className?: string }> = ({ className }) => {
     const email = 'dan_curley@hotmail.com';
-    return (<a id="email-link" href={`mailto:${email}`} className="text-blue-400 hover:text-blue-300 transition-colors">
+    return (<a id="email-link" href={`mailto:${email}`} className={className ? className : "text-blue-400 hover:text-blue-300 transition-colors"}>
         Email Me
     </a>);
 }
@@ -84,7 +84,7 @@ const Contact = () => {
 
                     {/* Right Side - Contact Information */}
                     <div className="space-y-8">
-                        <div>
+                        <div className="ml-12">
                             <div className="mb-6">
                                 <h3 className="text-2xl font-bold text-white">Get In Touch</h3>
                             </div>

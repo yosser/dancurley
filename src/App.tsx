@@ -4,7 +4,7 @@ import Hero from './components/Hero'
 import FeaturedWork from './components/FeaturedWork'
 import Footer from './components/Footer'
 import Portfolio from './pages/Portfolio'
-import Loaded from './pages/Loaded'
+import Gallery from './pages/Gallery'
 //import About from './pages/About'
 import Contact from './pages/Contact'
 
@@ -39,7 +39,14 @@ function App() {
       case 'Loaded':
         return (
           <>
-            <Loaded onNavigate={setCurrentPage} />
+            <Gallery gallery='Loaded Magazine Features' onNavigate={setCurrentPage} />
+            <Footer setCurrentPage={setCurrentPage} />
+          </>
+        )
+      case 'Springwise':
+        return (
+          <>
+            <Gallery gallery='Springwise' onNavigate={setCurrentPage} />
             <Footer setCurrentPage={setCurrentPage} />
           </>
         )

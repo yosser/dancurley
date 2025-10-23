@@ -57,6 +57,62 @@ export interface IProject {
     internalLinks?: { url: string; label: string }[];
 }
 
+
+const loadedgalleryImages = [
+    {
+
+        src: '/AlligatorWrestling.jpg',
+        alt: 'Alligator Wrestling in Florida',
+        title: 'Alligator Wrestling',
+        description: 'During my time as a freelance features writer for Loaded, I spent time wrestling alligators in Florida as part of an investigative piece.'
+    },
+    {
+        src: '/Cresta Run.jpg',
+        alt: 'Cresta Run in Switzerland',
+        title: 'Cresta Run',
+        description: 'I experienced the famous Cresta Run in Switzerland, documenting the thrill and danger of this historic toboggan run.'
+    },
+    {
+        src: '/iraq.jpg',
+        alt: 'Military embed in Iraq',
+        title: 'Iraq Military Embed',
+        description: 'I spent two weeks embedded with the military in Iraq, providing firsthand coverage of military operations and life on the front lines.'
+    }
+];
+
+const springwiseGalleryImages = [
+    {
+        src: '/Springwise Landmine Clearing.png',
+        alt: 'Springwise landmine clearing',
+        title: 'Springwise landmine clearing',
+        description: 'I wrote for Springwise, a global B2B science site, covering everything from consumer tech to governmental research and development innovations.'
+    },
+    {
+        src: '/Springwise Minimalist Mobile.png',
+        alt: 'Springwise solar powered MP3',
+        title: 'Springwise',
+        description: 'I wrote for Springwise, a global B2B science site, covering everything from consumer tech to governmental research and development innovations. '
+    },
+    {
+        src: '/Springwise Solar Powered MP3.png',
+        alt: 'Springwise minimal mobile',
+        title: 'Springwise',
+        description: 'I wrote for Springwise, a global B2B science site, covering everything from consumer tech to governmental research and development innovations.'
+    },
+];
+export const galleries = [
+    {
+        name: 'Loaded Magazine Features',
+        subheading: 'A collection of investigative features and adventures from my time as a freelance writer for Loaded magazine (2002-2005)',
+        images: loadedgalleryImages
+    },
+    {
+        name: 'Springwise',
+        subheading: 'A collection of news stories from my time as a freelance writer for Springwise (2016-2017)',
+        images: springwiseGalleryImages
+    },
+]
+
 export const projects: IProject[] = [
     {
         id: 1,
@@ -100,7 +156,7 @@ export const projects: IProject[] = [
         category: "Television",
         role: "Writer, Producer & Actor",
         date: "2012",
-        description: "In 2012 I also wrote, produced and appeared in a sitcom pilot I wrote and self funded. It’s far from broadcast quality and was never made to pitch, it was more an exercise in the fields of TV production. I wrote an entire six episode series but only produced the pilot episode",
+        description: "In 2012 I also wrote, produced and appeared in a sitcom pilot I self funded. It’s far from broadcast quality and was never made to pitch, it was more an exercise in the fields of TV production. I wrote an entire six episode series but only produced the pilot episode",
         externalLinks: [{ url: "https://vimeo.com/65003138", label: "Skanked Pilot" }],
         image: "/Skanked.png"
     },
@@ -121,7 +177,7 @@ export const projects: IProject[] = [
         primaryCategory: "TV & Streaming",
         category: "Acting",
         role: "Trainee Actor",
-        date: "2021 - present day",
+        date: "2011 - present day",
         description: "I studied acting part time in London's The Actors Centre (now the Seven Dials Playhouse) and currently train in Manchester at ActUpNorth. I’ve always felt it was important for a screenwriter to understand and feel attuned with how dialogue’s performed while writing it - often an eye contact can save a hundred needless words.",
         externalLinks: [{ url: "https://www.actupnorth.co.uk", label: "ActUpNorth" }],
         image: "/act-up.jpg"
@@ -145,7 +201,7 @@ export const projects: IProject[] = [
         category: "Content",
         role: "Storywriter",
         date: "1999-2000",
-        description: <React.Fragment><p>I worked at Sony for just over a year as the storyline writer for the PS2 game The Getaway.</p><p >It was considered a groundbreaking title for the time, pushing the boundaries for both videogame narratives and cinema - style cutscenes and direction.</p > <p>I did not work on it to the end, I created the outline for the story(the kidnapping and dual storyline with Mark and Frank) and created most of the main characters, but the script was finished by others after I left.</p></React.Fragment>,
+        description: <React.Fragment><p>I worked at Sony for just over a year as the storyline writer for the PS2 game The Getaway.</p><p >It was considered a groundbreaking title for the time, pushing the boundaries for both videogame narratives and cinematography cutscenes and direction.</p > <p>I did not work on it to the end, I created the outline for the story (the kidnapping and dual storyline with Mark and Frank) and created most of the main characters, but the script was finished by others after I left.</p></React.Fragment>,
         externalLinks: [{ url: "https://en.wikipedia.org/wiki/The_Getaway_(video_game)", label: "The Getaway" }],
         image: "/TheGetaway-sm.jpg"
     },
@@ -218,6 +274,7 @@ export const projects: IProject[] = [
         { url: "https://www.springwise.com/news/solar-powered-mp3", label: "Solar powered MP3" },
         { url: "https://www.springwise.com/news/landmine-clearing", label: "Landmine clearing" }],
         image: "/Springwise%20Landmine%20Clearing-sm.jpg",
+        internalLinks: [{ url: "/Springwise", label: "Sample Articles" }],
     },
     {
         id: 16,
