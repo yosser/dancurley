@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { projects as allProjects } from '../content/content';
 import type { IProject } from '../content/content';
-
+import { primaryCategories } from '../content/content';
 interface IPortfolioProps {
     primaryCategory: 'TV & Streaming' | 'Video Games' | 'Journalism';
     onNavigate: (page: string) => void;
@@ -28,6 +28,9 @@ const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory, onNavigate }) =
                     <h1 className="text-5xl font-bold text-white text-center">
                         {primaryCategory}
                     </h1>
+                </div>
+                <div className="flex flex-wrap justify-center gap-4 mb-12">
+                    <p className="text-gray-200 text-center" >{primaryCategories.find(pc => pc.name === primaryCategory)?.description}</p>
                 </div>
                 {/* Filter Bar 
                 <div className="flex flex-wrap justify-center gap-4 mb-12">

@@ -57,6 +57,20 @@ export interface IProject {
     internalLinks?: { url: string; label: string }[];
 }
 
+export const primaryCategories = [
+    {
+        name: 'TV & Streaming',
+        description: `I've worked in and around the TV and streaming industry for almost 20 years as a journalist, broadcasting copy writer/editor, and have written my own TV comedy drama scripts. I have exhaustive knowledge of how the UK broadcasting industry works, and of TV programming both domestic and global.`
+    },
+    {
+        name: 'Video Games',
+        description: `I’ve been playing games since I was six, and writing about and developing them since I was 16. As a former European Sega Champion, games have always been in my blood and I’ve had every console between the Atari 2600 and PlayStation 5.`
+    },
+    {
+        name: 'Journalism',
+        description: `I started in journalism at 15 writing for Sega Power, and over the years branched out from gaming into TV, Film, Lifestyle, Food and Science and Tech. I’m a very versatile writer and can easily change between casual first-person conversational writing, to fit into a more conserved and corporate tone.`
+    }
+];
 
 const loadedgalleryImages = [
     {
