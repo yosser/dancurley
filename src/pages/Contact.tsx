@@ -18,7 +18,7 @@ const Contact = () => {
                 </div>
                 <div className="mb-6">
                     <p className="text-xl text-gray-300 text-center mb-4">
-                        Available for permanent and freelance opportunities
+                        Available for full-time contracts, freelance commissions and office-based shifts around the whole of the UK.
                     </p>
                 </div>
                 <div >

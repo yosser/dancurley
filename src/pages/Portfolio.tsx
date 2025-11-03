@@ -4,10 +4,10 @@ import type { IProject } from '../content/content';
 import { primaryCategories } from '../content/content';
 interface IPortfolioProps {
     primaryCategory: 'TV & Streaming' | 'Video Games' | 'Journalism';
-    onNavigate: (page: string) => void;
+    setGallery: (gallery: string) => void;
 }
 
-const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory, onNavigate }) => {
+const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory, setGallery }) => {
     //    const [selectedCategory, setSelectedCategory] = useState('All');
     const [selectedProject, setSelectedProject] = useState<IProject | null>(null);
 
@@ -97,14 +97,14 @@ const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory, onNavigate }) =
 
                                     <div className="aspect-7/2 bg-gradient-to-br from-gray-700 to-gray-800 relative">
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" style={{
-                                            backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(${selectedProject.image})`,
+                                            backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(${selectedProject.focusImage ?? selectedProject.image})`,
                                             backgroundPositionX: '100%',
                                             backgroundSize: 'contain',
                                             backgroundRepeat: 'no-repeat'
                                         }}></div>
                                         <div className="absolute bottom-5 left-4 text-white">
                                             <div className='mb-2'>
-                                                <h2 className="text-3xl font-bold">{selectedProject.title}</h2>
+                                                <h2 className="text-3xl font-bold">{selectedProject.focusTitle ?? selectedProject.title}</h2>
                                             </div>
                                             <p className="text-blue-400">{selectedProject.role}</p>
                                             <p className="text-blue-200 text-sm"> {selectedProject.date}</p>
@@ -133,8 +133,7 @@ const Portfolio: React.FC<IPortfolioProps> = ({ primaryCategory, onNavigate }) =
                                             {(selectedProject.internalLinks ?? []).map((link => <button
                                                 key={link.url}
                                                 onClick={() => {
-                                                    setSelectedProject(null);
-                                                    onNavigate(link.url.substring(1)); // Remove leading slash
+                                                    setGallery(link.url.substring(1));
                                                 }}
                                                 className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
                                             >

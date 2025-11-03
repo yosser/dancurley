@@ -2,80 +2,64 @@ import { useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import FeaturedWork from './components/FeaturedWork'
-import Footer from './components/Footer'
+// import Footer from './components/Footer'
 import Portfolio from './pages/Portfolio'
 import Gallery from './pages/Gallery'
 //import About from './pages/About'
 import Contact from './pages/Contact'
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home')
+  const [currentPage, setCurrentPage] = useState('home');
+  const [gallery, setGallery] = useState('');
 
   const renderPage = () => {
     window.scrollTo(0, 0);
-
-    switch (currentPage) {
-      case 'tv':
-        return (
-          <>
-            <Portfolio primaryCategory="TV & Streaming" onNavigate={setCurrentPage} />
-            <Footer setCurrentPage={setCurrentPage} />
-          </>
-        )
-      case 'video-games':
-        return (
-          <>
-            <Portfolio primaryCategory="Video Games" onNavigate={setCurrentPage} />
-            <Footer setCurrentPage={setCurrentPage} />
-          </>
-        )
-      case 'journalism':
-        return (
-          <>
-            <Portfolio primaryCategory="Journalism" onNavigate={setCurrentPage} />
-            <Footer setCurrentPage={setCurrentPage} />
-          </>
-        )
-      case 'Loaded':
-        return (
-          <>
-            <Gallery gallery='Loaded Magazine Features' onNavigate={setCurrentPage} />
-            <Footer setCurrentPage={setCurrentPage} />
-          </>
-        )
-      case 'Springwise':
-        return (
-          <>
-            <Gallery gallery='Springwise' onNavigate={setCurrentPage} />
-            <Footer setCurrentPage={setCurrentPage} />
-          </>
-        )
-      /*case 'about':
-        return (
-          <>
-            <About />
-            <Footer setCurrentPage={setCurrentPage} />
-          </>
-        ) */
-      case 'contact':
-        return (
-          <>
-            <Contact />
-            <Footer setCurrentPage={setCurrentPage} />
-          </>
-        )
-      default:
-        return (
-          <>
-            <Hero />
-            <FeaturedWork onNavigate={setCurrentPage} />
-            {/*<Testimonial />*/}
-            {/*<Services /> */}
-            <Footer setCurrentPage={setCurrentPage} />
-          </>
-        )
+    let portfolioName = ''
+    if (currentPage === 'tv') {
+      portfolioName = 'TV & Streaming';
+    } else if (currentPage === 'video-games') {
+      portfolioName = 'Video Games';
+    } else if (currentPage === 'journalism') {
+      portfolioName = 'Journalism';
     }
-    window.scrollTo(0, 0);
+
+    if (portfolioName.length > 0) {
+      return (
+        <>
+          <Portfolio primaryCategory={portfolioName as 'TV & Streaming' | 'Video Games' | 'Journalism'} setGallery={setGallery} />
+          {gallery.length > 0 ? <Gallery gallery={gallery} onClose={() => setGallery('')} /> : null}
+
+        </>
+      )
+    }
+    else {
+      switch (currentPage) {
+        /*case 'about':
+          return (
+            <>
+              <About />
+              <Footer setCurrentPage={setCurrentPage} />
+            </>
+          ) */
+        case 'contact':
+          return (
+            <>
+              <Contact />
+              {/*<Footer setCurrentPage={setCurrentPage} />*/}
+            </>
+          )
+        default:
+          return (
+            <>
+              <Hero />
+              <FeaturedWork onNavigate={setCurrentPage} />
+              {/*<Testimonial />*/}
+              {/*<Services /> */}
+              {/*<Footer setCurrentPage={setCurrentPage} />*/}
+            </>
+          )
+      }
+    }
   }
 
   return (

@@ -10,9 +10,7 @@ const Footer = ({ setCurrentPage }: { setCurrentPage: React.Dispatch<React.SetSt
                         <div className="mb-4">
                             <h3 className="text-xl font-bold text-white">Dan Curley</h3>
                         </div>
-                        <p className="text-gray-400 text-sm leading-relaxed">
-                            Writer for Television & New Media. Crafting stories that connect and inspire.
-                        </p>
+
                     </div>
 
                     <div>
