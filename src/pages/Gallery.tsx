@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-
-import { galleries } from '../content/content';
+import { usePocket } from '../hooks/usePocket';
+import type { IGallery, IImage } from '../interfaces';
+//import { galleries } from '../content/content';
 
 interface IGalleryProps {
     gallery: string;
@@ -8,18 +9,26 @@ interface IGalleryProps {
 }
 
 const Gallery: React.FC<IGalleryProps> = ({ gallery, onClose }) => {
+    const { pb } = usePocket();
+    const [galleryMeta, setGalleryMeta] = useState<IGallery | null>(null);
+    const [galleryImages, setGalleryImages] = useState<IImage[]>([]);
     const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string, title: string, description: string } | null>(null);
     useEffect(() => {
-        const galleryMeta = galleries.find(g => g.name === gallery);
-        const galleryImages = galleryMeta?.images ?? [];
-
-        if (galleryImages && galleryImages.length == 1) {
-            setSelectedImage({ src: galleryImages[0].src, alt: galleryImages[0].alt, title: galleryImages[0].title, description: galleryImages[0].description });
+        if (pb !== null) {
+            pb.collection('gallery').getFirstListItem(`name="${gallery}"`, { expand: 'field' }).then((record) => {
+                setGalleryMeta(record as IGallery);
+            });
         }
-    }, [gallery]);
+    }, [gallery, pb]);
 
-    const galleryMeta = galleries.find(g => g.name === gallery);
-    const galleryImages = galleryMeta?.images ?? [];
+    useEffect(() => {
+        if (galleryMeta !== null) {
+            setGalleryImages(galleryMeta.expand?.field ?? [] as IImage[]);
+            if ((galleryMeta.expand?.field ?? []).length == 1) {
+                setSelectedImage({ src: pb?.files.getURL(galleryMeta.expand?.field[0], galleryMeta.expand?.field[0].image) ?? '', alt: galleryMeta.expand?.field[0].alt, title: galleryMeta.expand?.field[0].title, description: galleryMeta.expand?.field[0].description });
+            }
+        }
+    }, [galleryMeta, pb?.files]);
 
     const onCloseSelectedImage = () => {
         if (galleryImages.length > 1) {
@@ -37,7 +46,7 @@ const Gallery: React.FC<IGalleryProps> = ({ gallery, onClose }) => {
                     {galleryMeta?.name}
                 </h1>
                 <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-                    {galleryMeta?.subheading}
+                    {galleryMeta?.subHeading}
                 </p>
             </div>
 
@@ -47,11 +56,11 @@ const Gallery: React.FC<IGalleryProps> = ({ gallery, onClose }) => {
                     <div
                         key={index}
                         className="bg-gray-900 rounded-lg overflow-hidden cursor-pointer hover:bg-gray-800 transition-colors group"
-                        onClick={() => setSelectedImage({ src: image.src, alt: image.alt, title: image.title, description: image.description })}
+                        onClick={() => setSelectedImage({ src: pb?.files.getURL(image, image.image) ?? '', alt: image.alt, title: image.title, description: image.description })}
                     >
                         <div className="aspect-video relative overflow-hidden">
                             <img
-                                src={image.src}
+                                src={pb?.files.getURL(image, image.image, { thumb: '390x220' })}
                                 alt={image.alt}
                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             />

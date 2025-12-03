@@ -1,14 +1,13 @@
-import { projects as allProjects } from '../content/content';
-
+import { usePocket } from "../hooks/usePocket";
+import type { RecordModel } from "pocketbase";
 interface FeaturedWorkProps {
     onNavigate: (page: string) => void;
+    categories: RecordModel[];
 }
 
+const FeaturedWork = ({ onNavigate, categories }: FeaturedWorkProps) => {
+    const { pb } = usePocket();
 
-const FeaturedWork = ({ onNavigate }: FeaturedWorkProps) => {
-    const allPrimaryCategories = [...new Set(allProjects.map(project => project.primaryCategory))];
-    const pc2nav = { 'TV & Streaming': 'tv', 'Video Games': 'video-games', 'Journalism': 'journalism' };
-    const pc2image = { 'TV & Streaming': '/Channel_4_Logo_2023.svg', 'Video Games': '/PlayStation.png', 'Journalism': '/Loadedlogo-sm.jpg' };
     return (
         <section id="work" className="py-14 bg-gray-900">
             <div className="max-w-7xl mx-auto px-6 w-full">
@@ -18,13 +17,13 @@ const FeaturedWork = ({ onNavigate }: FeaturedWorkProps) => {
                     </h2>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {allPrimaryCategories.map((primaryCategory) => {
+                    {categories.map((primaryCategory) => {
 
-                        return (<div key={primaryCategory} className="group cursor-pointer">
-                            <div onClick={() => onNavigate(pc2nav[primaryCategory])} className="relative overflow-hidden rounded-lg bg-gray-800 aspect-video mb-4">
+                        return (<div key={primaryCategory.id} className="group cursor-pointer">
+                            <div onClick={() => onNavigate(primaryCategory.nav)} className="relative overflow-hidden rounded-lg bg-gray-800 aspect-video mb-4">
                                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20"
                                     style={{
-                                        backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(${pc2image[primaryCategory]})`,
+                                        backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(${pb?.files.getURL(primaryCategory.expand?.image, primaryCategory.expand?.image?.image)})`,
                                         backgroundPositionX: '50%',
                                         backgroundSize: 'cover',
                                         backgroundRepeat: 'no-repeat'
@@ -35,7 +34,7 @@ const FeaturedWork = ({ onNavigate }: FeaturedWorkProps) => {
                                 <div className="bg-gray-900 rounded-top-lg max-w-4xl w-full overflow-y-auto z-10 opacity-90">
                                     <div className="aspect-7/2 bg-gradient-to-br from-gray-700 to-gray-800 relative">
                                         <div className="pt-7">
-                                            <h2 className="text-3xl font-bold text-center">{primaryCategory}</h2>
+                                            <h2 className="text-3xl font-bold text-center">{primaryCategory.name}</h2>
                                         </div>
                                     </div>
 
@@ -50,7 +49,6 @@ const FeaturedWork = ({ onNavigate }: FeaturedWorkProps) => {
                                     </button>
                                 </div> */}
                             </div>
-
 
                         </div>
                         )

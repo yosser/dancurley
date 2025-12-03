@@ -1,28 +1,29 @@
 import React from "react";
 import type { ReactNode } from "react";
 
-export const aboutMe = [
-    {
-        text: `I'm a passionate storyteller who believes in the power of narrative to connect,
+/*
+{
+    text: `I'm a passionate storyteller who believes in the power of narrative to connect,
                 inspire, and transform.With over a decade of experience in television, film,
                 and digital media, I've dedicated my career to crafting stories that resonate
                 with audiences and leave lasting impressions.`},
-    {
-        text: `My journey began in journalism, where I learned the art of compelling storytelling
+{
+    text: `My journey began in journalism, where I learned the art of compelling storytelling
         and the importance of authentic character development.This foundation led me to
         television writing, where I discovered my true passion for creating complex,
         multi - dimensional characters and intricate plotlines that keep viewers engaged.`
-    },
-    {
-        text: `What drives me is the opportunity to explore the human condition through different
+},
+{
+    text: `What drives me is the opportunity to explore the human condition through different
         lenses—whether it's a gritty crime drama, a thought-provoking sci-fi series, or an  
         an investigative piece that exposes truth.I believe every story has the potential
         to change perspectives and create meaningful conversations.`},
-    {
-        text: `When I'm not writing, you'll find me analyzing the latest shows, reading industry
+{
+    text: `When I'm not writing, you'll find me analyzing the latest shows, reading industry
         publications, or mentoring emerging writers.I'm always excited to collaborate
         with fellow creatives who share my commitment to excellence and innovation in
         storytelling.`}];
+        */
 
 export const selectedCredits = [
     "The Last Stand (HBO Max) - Staff Writer",
@@ -132,8 +133,8 @@ const springwiseLandmineClearingImage = [
 const springwiseMinimalistMobileImage = [
     {
         src: '/Springwise%20Minimalist%20Mobile.png',
-        alt: 'Springwise solar powered MP3',
-        title: 'Springwise',
+        alt: 'Springwise minimalist mobile',
+        title: 'Springwise minimalist mobile',
         description: 'I wrote for Springwise, a global B2B science site, covering everything from consumer tech to governmental research and development innovations. '
     },
 ];
@@ -174,7 +175,7 @@ const ThreeSixtygalleryImage4 = [
     {
         src: '/Mean Machine 3-4.jpg',
         alt: 'Mean Machine 3-4',
-        title: 'Mean Machine pages 2-3',
+        title: 'Mean Machine pages 3-4',
         description: ''
     },
 ];
@@ -187,12 +188,86 @@ const ThreeSixtygalleryImage5 = [
     },
 ];
 
+
 export const galleries = [
     {
         name: 'Loaded Magazine Features',
         subheading: 'A collection of investigative features and adventures from my time as a freelance writer for Loaded magazine (2002-2005)',
         images: loadedgalleryImages
     },
+    {
+        name: 'Springwise',
+        subheading: 'A collection of news stories from my time as a freelance writer for Springwise (2016-2017)',
+        images: [
+            {
+                src: '/Springwise%20Landmine%20Clearing.png',
+                alt: 'Springwise landmine clearing',
+                title: 'Springwise landmine clearing',
+                description: ''
+            },
+            {
+                src: '/Springwise%20Minimalist%20Mobile.png',
+                alt: 'Springwise minimalist mobile',
+                title: 'Springwise minimalist mobile',
+                description: ''
+            },
+            {
+                src: '/Springwise%20Solar%20Powered%20MP3.png',
+                alt: 'Springwise solar powered MP3',
+                title: 'Springwise solar powered MP3',
+                description: ''
+            },
+            {
+                src: '/Robot%20teaching%20coding.png',
+                alt: 'Robot teaching coding',
+                title: 'Robot teaching coding',
+                description: ''
+            },
+            {
+                src: '/Pong%20Coffee%20Table.png',
+                alt: 'Pong coffee table',
+                title: 'Pong coffee table',
+                description: ''
+            },
+            {
+                src: '/Tiny%20Sat.png',
+                alt: 'Tiny sat',
+                title: 'Tiny sat',
+                description: ''
+            },
+            {
+                src: '/Respiratory%20monitor%20shirt.png',
+                alt: 'Respiratory monitor shirt',
+                title: 'Respiratory monitor shirt',
+                description: ''
+            },
+            {
+                src: '/Drunkpay%20App.png',
+                alt: 'Drunkpay app',
+                title: 'Drunkpay app',
+                description: ''
+            },
+            {
+                src: '/Ultrasound%20whispering.png',
+                alt: 'Ultrasound whispering',
+                title: 'Ultrasound whispering',
+                description: ''
+            },
+            {
+                src: '/Robot%20Fish.png',
+                alt: 'Robot fish',
+                title: 'Robot fish',
+                description: ''
+            },
+            {
+                src: '/Visual%20Elevator.png',
+                alt: 'Visual elevator',
+                title: 'Visual elevator',
+                description: ''
+            },
+        ]
+    },
+
     {
         name: 'SpringwiseMinimalistMobile',
         subheading: 'A collection of news stories from my time as a freelance writer for Springwise (2016-2017)',
@@ -258,6 +333,47 @@ export const galleries = [
                 title: 'Sega Japan',
                 description: 'I visited Sega Japan to interview the President of Sega and was able to reveal many new developments Sega were working on.'
             },
+        ]
+    },
+    {
+        name: 'Firebugs',
+        subheading: 'Firebugs design feature',
+        images: [{
+            src: '/Firebugs1.jpg',
+            alt: 'Firebugs feature pages 1-2',
+            title: 'Firebugs feature pages 1-2',
+            description: ''
+        },
+        {
+            src: '/Firebugs2.jpg',
+            alt: 'Firebugs feature pages 3-4',
+            title: 'Firebugs feature pages 3-4',
+            description: ''
+        },
+        {
+            src: '/Firebugs3.jpg',
+            alt: 'Firebugs feature pages 5-6',
+            title: 'Firebugs feature pages 5-6',
+            description: ''
+        },
+        {
+            src: '/Firebugs4.jpg',
+            alt: 'Firebugs feature page 7',
+            title: 'Firebugs feature page 7',
+            description: ''
+        },
+        ]
+    },
+    {
+        name: 'TheHarderTheyCome',
+        subheading: 'A collection of investigative features and adventures from my time as a freelance writer for The harder they come (2006-2011)',
+        images: [
+            {
+                src: '/TheHarderTheyCome.jpg',
+                alt: 'The harder they come',
+                title: 'The harder they come',
+                description: ''
+            }
         ]
     },
     {
@@ -357,7 +473,7 @@ export const projects: IProject[] = [
         role: "TV Writer and Editor",
         date: "2006-11",
         description: "For five years I worked at www.orange.co.uk as a TV editor and journalist, working across all genres from reality to drama to documentaries. I wrote half a dozen news stories each morning, and spent the afternoons working on reviews, features and microsites for reality shows like Big Brother and I’m a Celebrity. I also wrote live blogs for evictions on these reality shows - often late on Friday nights.",
-        internalLinks: [{ url: "/BB2", label: "Big brother eviction preditions" },
+        internalLinks: [{ url: "/BB2", label: "Big brother eviction predictions" },
         { url: "/BB1", label: "Big brother Bea" },
         { url: "/BB3", label: "Big brother Tina M." }],
         externalLinks: [],
@@ -430,7 +546,10 @@ export const projects: IProject[] = [
         role: "1991 winner",
         date: "1991",
         description: "My start in the videogame industry happened in 1991 when I beat over 160,000 other players to become the European Sega Champion - the first year the Sega championships went international. This made me a celebrity of sorts for a time, leading to many hours of TV coverage across shows like BBC’s Newsround and C4’s GamesMaster. I also made a video with Dominik Diamond called Power Play “How To Become a Videogames Master” which was available to buy through retail.",
-        externalLinks: [{ url: "https://www.youtube.com/watch?v=AIcLrZVqBkk", label: "Watch Power Play" }],
+        externalLinks: [{ url: "https://www.youtube.com/watch?v=AIcLrZVqBkk", label: "Watch Power Play" },
+        { url: "https://fb.watch/DJ826i8e-t/", label: "BBC Newsround" },
+        { url: "https://www.youtube.com/watch?v=pexW8MH7kLw", label: "GamesMaster: Sonic Challenge" },
+        { url: "https://www.youtube.com/watch?v=jVGVbk4sqT0&t=14s", label: "YouBet!" }],
         image: "/Sega-European-Champion.jpg"
     },
 
@@ -466,7 +585,9 @@ export const projects: IProject[] = [
         description: "I started freelance writing for Future Publishing’s Sega Power in 1991 while still just 15. I wrote a monthly column called Curley’s Challenge and several features, the most memorable being a visit to Sega Japan where I met the President of Sega and was able to reveal many new developments Sega were working on.",
         externalLinks: [],
         image: "/SegaJapan-sm.jpg",
-        internalLinks: [{ url: "/SegaJapan", label: "Sega Power Japan" }],
+        internalLinks: [{ url: "/SegaJapan", label: "Sega Power Japan" }, {
+            url: "/TheHarderTheyCome", label: "Harder they come"
+        }],
     },
     {
         id: 11,
@@ -477,8 +598,8 @@ export const projects: IProject[] = [
         date: "2003 - 04",
         description: "After a spell on Future’s XGamer magazine, I became Deputy Editor of The Official UK PlayStation Magazine where I planned each issue, managed the freelance budget and pool and chaired features meetings. While at Future, I also freelanced for PSM2, GamesMaster Magazine, PlayStation Max, Total Film, and edited and wrote Metal Hammer's videogame section.",
         externalLinks: [],
+        internalLinks: [{ url: "/Firebugs", label: "Firebugs design feature" }],
         image: "/OPM-cover.jpg",
-
     },
     {
         id: 12,
@@ -520,9 +641,9 @@ export const projects: IProject[] = [
         description: "I would write around 10-12 news stories a week for this global B2B science site, covering everything from consumer tech to governmental research and development innovations. I wrote hundreds of news pieces while I was freelancing for them which are behind a paywall (hence screen grabs instead of links).",
         externalLinks: [],
         image: "/Springwise%20Landmine%20Clearing-sm.jpg",
-        internalLinks: [{ url: "/SpringwiseMinimalistMobile", label: "Minimal mobile" },
-        { url: "/SpringwiseSolarPoweredMP3", label: "Solar powered MP3" },
-        { url: "/SpringwiseLandmineClearing", label: "Landmine clearing" }],
+        internalLinks: [
+            { url: "/Springwise", label: "Examples" }
+        ],
     },
     {
         id: 16,

@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
-
+import { type RecordModel } from 'pocketbase';
 interface HeaderProps {
     onNavigate: (page: string) => void;
     currentPage: string;
+    categories: RecordModel[];
 }
 
-const Header = ({ onNavigate, currentPage }: HeaderProps) => {
+const Header = ({ onNavigate, currentPage, categories }: HeaderProps) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
@@ -17,6 +17,8 @@ const Header = ({ onNavigate, currentPage }: HeaderProps) => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+
 
     const handleMobileMenuToggle = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -44,33 +46,19 @@ const Header = ({ onNavigate, currentPage }: HeaderProps) => {
                     {/* Desktop Navigation */}
 
                     <nav className="hidden md:flex items-center space-x-8">
-                        <button
-                            onClick={() => handleNavigation('tv')}
-                            className={`transition-colors ${currentPage === 'tv'
-                                ? 'text-blue-400'
-                                : 'text-white hover:text-blue-400'
-                                }`}
-                        >
-                            TV & Streaming
-                        </button>
-                        <button
-                            onClick={() => handleNavigation('video-games')}
-                            className={`transition-colors ${currentPage === 'video-games'
-                                ? 'text-blue-400'
-                                : 'text-white hover:text-blue-400'
-                                }`}
-                        >
-                            Video Games
-                        </button>
-                        <button
-                            onClick={() => handleNavigation('journalism')}
-                            className={`transition-colors ${currentPage === 'journalism'
-                                ? 'text-blue-400'
-                                : 'text-white hover:text-blue-400'
-                                }`}
-                        >
-                            Journalism
-                        </button>
+                        {(categories ?? []).map(category => (
+                            <button
+                                key={category.id}
+                                onClick={() => handleNavigation(category.nav)}
+                                className={`transition-colors ${currentPage === category.nav
+                                    ? 'text-blue-400'
+                                    : 'text-white hover:text-blue-400'
+                                    }`}
+                            >
+                                {category.name}
+                            </button>
+                        ))}
+
                         {/*<button
 
                             onClick={() => handleNavigation('about')}
@@ -113,33 +101,15 @@ const Header = ({ onNavigate, currentPage }: HeaderProps) => {
                 {isMobileMenuOpen && (
                     <div className="md:hidden bg-black/95 backdrop-blur-md border-t border-gray-800">
                         <nav className="px-6 py-4 space-y-4">
-                            <button
-                                onClick={() => handleNavigation('tv')}
-                                className={`block w-full text-left py-2 transition-colors ${currentPage === 'portfolio'
-                                    ? 'text-blue-400'
-                                    : 'text-white hover:text-blue-400'
-                                    }`}
-                            >
-                                TV & Streaming
-                            </button>
-                            <button
-                                onClick={() => handleNavigation('video-games')}
-                                className={`block w-full text-left py-2 transition-colors ${currentPage === 'portfolio'
-                                    ? 'text-blue-400'
-                                    : 'text-white hover:text-blue-400'
-                                    }`}
-                            >
-                                Video Games
-                            </button>
-                            <button
-                                onClick={() => handleNavigation('journalism')}
-                                className={`block w-full text-left py-2 transition-colors ${currentPage === 'portfolio'
-                                    ? 'text-blue-400'
-                                    : 'text-white hover:text-blue-400'
-                                    }`}
-                            >
-                                Journalism
-                            </button>
+                            {(categories ?? []).map(category => (
+                                <button
+                                    key={category.id}
+                                    onClick={() => handleNavigation(category.nav)}
+                                    className={`block w-full text-left py-2 transition-colors ${currentPage === category.nav
+                                        ? 'text-blue-400'
+                                        : 'text-white hover:text-blue-400'
+                                        }`}
+                                ></button>))}
                             <button
                                 onClick={() => handleNavigation('about')}
                                 className={`block w-full text-left py-2 transition-colors ${currentPage === 'about'

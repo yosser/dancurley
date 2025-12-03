@@ -1,9 +1,24 @@
-import {
-    aboutMe
-} from '../content/content';
-
+import { useState, useEffect } from 'react';
+import { usePocket } from "../hooks/usePocket";
+import PocketBase from "pocketbase";
 
 const About = () => {
+    const { token, pb } = usePocket();
+    const [aboutMeData, setAboutMeData] = useState<{ text: string }[]>([]);
+
+
+    useEffect(() => {
+        const getAboutMe = async (pb: PocketBase) => {
+            const aboutMeData = await pb.collection('section').getFirstListItem('name="aboutMe"', { expand: 'textBlocks' });
+            const ab = (aboutMeData?.expand?.textBlocks ?? []).map((textBlock: { text: string }) => ({ text: textBlock.text }));
+            setAboutMeData(ab);
+        }
+        if (pb !== null && aboutMeData.length === 0 && token.length > 0) {
+            getAboutMe(pb);
+
+        }
+    }, [token, aboutMeData.length, pb]);
+
     return (
         <div id="about" className="min-h-screen bg-black pt-20">
             <div className="max-w-7xl mx-auto px-6 py-12">
@@ -35,7 +50,7 @@ const About = () => {
                             <h2 className="text-3xl font-bold">My Story</h2>
                         </div>
                         <div className="space-y-6 text-lg leading-relaxed text-gray-300">
-                            {aboutMe.map((item, index) => (
+                            {(aboutMeData ?? []).map((item: { text: string }, index: number) => (
                                 <p key={index}>{item.text}</p>
                             ))}
                         </div>
