@@ -12,9 +12,6 @@ import { useGetCollection } from './hooks/useGetCollection';
 import { usePocket } from './hooks/usePocket';
 
 
-const USER_EMAIL = 'apiuser@noplace.com';
-const USER_PASSWORD = 'hSJfV-rR0D23bCd';
-
 function App() {
   const { pb, login, token } = usePocket();
   const [currentPage, setCurrentPage] = useState('home');
@@ -24,7 +21,7 @@ function App() {
 
   useEffect(() => {
     if (token.length === 0) {
-      login(USER_EMAIL, USER_PASSWORD);
+      login(import.meta.env.VITE_USER_EMAIL, import.meta.env.VITE_USER_PASSWORD);
     }
   }, [login, token]);
 
