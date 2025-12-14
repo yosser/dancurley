@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 //import { usePocket } from './hooks/usePocket'
 import Header from './components/Header'
 import Hero from './components/Hero'
@@ -13,17 +13,18 @@ import { usePocket } from './hooks/usePocket';
 
 
 function App() {
+  const loginRef = useRef(false);
   const { pb, login, token } = usePocket();
   const [currentPage, setCurrentPage] = useState('home');
   const [gallery, setGallery] = useState('');
   const allPrimaryCategories = useGetCollection(pb, token, 'category', 'image');
 
-
   useEffect(() => {
-    if (token.length === 0) {
+    if (!loginRef.current) {
+      loginRef.current = true;
       login(import.meta.env.VITE_USER_EMAIL, import.meta.env.VITE_USER_PASSWORD);
     }
-  }, [login, token]);
+  }, [login]);
 
   const renderPage = () => {
     window.scrollTo(0, 0);
