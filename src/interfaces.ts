@@ -39,6 +39,7 @@ export interface ICategory {
     image: string;
     created: string;
     updated: string;
+    priority: string;
 }
 
 export interface IProject {
@@ -63,4 +64,5 @@ export interface IProject {
     active: boolean;
     created: string;
     updated: string;
+    priority: number;
 }

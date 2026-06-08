@@ -17,7 +17,7 @@ const FeaturedWork = ({ onNavigate, categories }: FeaturedWorkProps) => {
                     </h2>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {categories.map((primaryCategory) => {
+                    {[...categories].sort((a,b) => b.priority - a.priority).map((primaryCategory) => {
 
                         return (<div key={primaryCategory.id} className="group cursor-pointer">
                             <div onClick={() => onNavigate(primaryCategory.nav)} className="relative overflow-hidden rounded-lg bg-gray-800 aspect-video mb-4">
@@ -55,7 +55,7 @@ const FeaturedWork = ({ onNavigate, categories }: FeaturedWorkProps) => {
                     })}
                 </div>
             </div>
-        </section >
+        </section>
     );
 };
 

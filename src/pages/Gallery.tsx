@@ -13,6 +13,7 @@ const Gallery: React.FC<IGalleryProps> = ({ gallery, onClose }) => {
     const [galleryMeta, setGalleryMeta] = useState<IGallery | null>(null);
     const [galleryImages, setGalleryImages] = useState<IImage[]>([]);
     const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string, title: string, description: string } | null>(null);
+
     useEffect(() => {
         if (pb !== null) {
             pb.collection('gallery').getFirstListItem(`name="${gallery}"`, { expand: 'field' }).then((record) => {

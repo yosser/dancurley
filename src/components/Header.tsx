@@ -46,7 +46,7 @@ const Header = ({ onNavigate, currentPage, categories }: HeaderProps) => {
                     {/* Desktop Navigation */}
 
                     <nav className="hidden md:flex items-center space-x-8">
-                        {(categories ?? []).map(category => (
+                        {([...categories ?? []]).sort((a,b) => b.priority- a.priority).map(category => (
                             <button
                                 key={category.id}
                                 onClick={() => handleNavigation(category.nav)}

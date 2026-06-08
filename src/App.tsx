@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-//import { usePocket } from './hooks/usePocket'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import FeaturedWork from './components/FeaturedWork'
@@ -8,16 +7,16 @@ import Portfolio from './pages/Portfolio'
 import Gallery from './pages/Gallery'
 //import About from './pages/About'
 import Contact from './pages/Contact';
-import { useGetCollection } from './hooks/useGetCollection';
+import { useSubscribe } from './hooks/useSubscribe';
 import { usePocket } from './hooks/usePocket';
+import type { ICategory } from './interfaces';
 
 
 function App() {
   const { pb, login, token } = usePocket();
   const [currentPage, setCurrentPage] = useState('home');
   const [gallery, setGallery] = useState('');
-  const allPrimaryCategories = useGetCollection(pb, token, 'category', 'image');
-
+  const allPrimaryCategories = useSubscribe(pb, 'category', false, undefined, 'image') as ICategory[];
 
   useEffect(() => {
     if (token.length === 0) {
@@ -27,19 +26,12 @@ function App() {
 
   const renderPage = () => {
     window.scrollTo(0, 0);
-    let portfolioName = ''
-    if (currentPage === 'tv') {
-      portfolioName = 'TV & Streaming';
-    } else if (currentPage === 'video-games') {
-      portfolioName = 'Video Games';
-    } else if (currentPage === 'journalism') {
-      portfolioName = 'Journalism';
-    }
+    const primaryCategory = allPrimaryCategories.find(pc => pc.nav === currentPage);
 
-    if (portfolioName.length > 0) {
+    if (primaryCategory) {
       return (
         <>
-          <Portfolio primaryCategory={portfolioName as 'TV & Streaming' | 'Video Games' | 'Journalism'} setGallery={setGallery} show={gallery.length === 0} />
+          <Portfolio primaryCategoryId={primaryCategory.id} setGallery={setGallery} show={gallery.length === 0} />
           {gallery.length > 0 ? <Gallery gallery={gallery} onClose={() => setGallery('')} /> : null}
         </>
       )
@@ -74,12 +66,11 @@ function App() {
     }
   }
 
-  return (
-    <div className="min-h-screen bg-black text-white">
-      <Header onNavigate={setCurrentPage} currentPage={currentPage} categories={allPrimaryCategories} />
-      {renderPage()}
-    </div>
-  )
+  return ((allPrimaryCategories.length > 0) && (pb !== null)) ? <div className="min-h-screen bg-black text-white">
+    <Header onNavigate={setCurrentPage} currentPage={currentPage} categories={allPrimaryCategories} />
+    {renderPage()}
+  </div>
+    : null
 }
 
 export default App
